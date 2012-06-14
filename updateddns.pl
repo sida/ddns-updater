@@ -55,7 +55,7 @@ GetOptions (
   'verbose' => \$verbose,
 );
 
-unless ($service && $host && $id && $passwd && $ipfile){
+unless ($service && $host && $id && $passwd){
   print "usage:...";
   exit;
 }
