@@ -1,4 +1,35 @@
 #!/usr/bin/perl
+=head1 SCRIPT NAME
+updateddns.pl
+
+=head1 DESCRIPTION
+Dynamic DNSのIP更新を行う
+
+=head1 USAGE
+  updateddns.pl -s [PROVIDER] -h [HOST] -i [ID] -p [PASSWD] -c [FILE] -u -v
+
+  -s PROVIDER ,--service=PROVIDER
+　　サービス提供元。以下の３つをサポート。
+     DynDNS ,IeServer ,NoIp
+
+  -h HOST ,--host=HOST
+　　ホスト名
+
+  -i ID ,--id=ID
+　　ID
+
+  -p PASSWD ,--passwd=PASSWD
+　　パスワード
+
+  -c FILE
+    テキストファイルを指定。内容と現在のIPが不一致の場合IPの更新を行う。
+　　ただし-uオプションがない場合には更新は行わない。
+
+  -u ,--update
+    IPの更新を行う
+
+  -v ,--verbose
+=cut
 
 use strict;
 use warnings;
