@@ -25,4 +25,9 @@ Dynamic DNSのIP更新ツール
 
   -v ,--verbose
 
+例
+  ieServer.Netの場合(http://ieserver.net/)
 
+  $ updateddns.pl -s IeServer -h {ドメイン名} -p {パスワード} -i {ユーザー名} -c ip.txt -u -v
+
+    ドメイン名、パスワード、ユーザー名は登録した内容を使う。
