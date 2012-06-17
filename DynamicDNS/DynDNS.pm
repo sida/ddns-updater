@@ -5,9 +5,8 @@ use URI::Fetch;
 use base qw(DynamicDNS);
 
 sub new{
-  my $self = {};
-  bless $self;
-  return $self;
+  my $class = shift;
+  return bless {},$class;
 }
 
 sub parse_ip{
