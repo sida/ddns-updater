@@ -57,7 +57,7 @@ GetOptions (
 
 unless ($service && $host && $id && $passwd){
   print "usage:...";
-  exit;
+  exit(9);
 }
 
 my $module="DynamicDNS::${service}";
@@ -66,13 +66,17 @@ load $module;
 my $ddns = $service->new();
 my $ip = $ddns->get_ip();
 
+unless (defined $ip){
+  myprint ("err ip\n");
+  exit(1);
+}
 myprint ("IP:$ip\n");
 
 if ($ipfile){
   my $saved_ip = readlastip($ipfile);
   if ((defined $saved_ip) && ($ip eq $saved_ip)){
     myprint ("don't update same ip\n");
-    exit; 
+    exit(2); 
   }
   writelastip($ip,$ipfile);
 }
@@ -82,7 +86,7 @@ if ($do_update){
   myprint("update\n");
 }
 
-exit;
+exit(0);
 
 sub myprint{
   my $str = shift;
